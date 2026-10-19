@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head><title>Tasky (BROKEN demo)</title>
+<style>
+body{font-family:comic sans ms,cursive;background:#ff0;margin:0}
+h1{font-size:48px;color:red;text-shadow:2px 2px blue}
+input,button{font-size:20px}
+#out{background:#fff;min-height:100px;border:4px solid purple;padding:8px}
+.leak{font-size:10px;color:#333} /* "hidden" api key in page */
+</style></head>
+<body>
+<h1>Tasky!!!</h1>
+<p>Add task (this version is intentionally broken for the demo)</p>
+<!-- FAKE leaked key for demo — not real -->
+<p class="leak">API_KEY=sk-demo-LEAKED-KEY-DO-NOT-USE-12345</p>
+<input id="t" placeholder="task">
+<button onclick="add()">Add</button>
+<button onclick="clearAll()">Clear ALL</button>
+<div id="out"></div>
+<script>
+// XSS-prone: writes HTML without escaping
+const KEY = "sk-demo-LEAKED-KEY-DO-NOT-USE-12345"; // also in JS
+function add(){
+  const v = document.getElementById('t').value;
+  document.getElementById('out').innerHTML += "<div>"+v+"</div>"; // unsafe
+  localStorage.tasks = document.getElementById('out').innerHTML;
+}
+function clearAll(){ localStorage.clear(); location.reload(); }
+document.getElementById('out').innerHTML = localStorage.tasks || "";
+console.log("using key", KEY);
+</script>
+</body></html>

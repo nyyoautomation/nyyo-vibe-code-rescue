@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tasky — fixed demo</title>
+  <meta name="description" content="Rescued vibe-coded mini app by Nyyo Automation" />
+  <style>
+    :root{--bg:#0b1220;--panel:#121a2b;--text:#e8eefc;--muted:#9aa8c7;--accent:#5b8cff;--border:#243049;--ok:#3dd6c6}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;padding:24px}
+    .card{max-width:480px;margin:0 auto;background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:20px}
+    h1{margin:0 0 8px;font-size:1.4rem}
+    .row{display:flex;gap:8px;margin:16px 0}
+    input{flex:1;padding:12px;border-radius:10px;border:1px solid var(--border);background:#0b1220;color:var(--text)}
+    button{padding:12px 14px;border:0;border-radius:10px;background:var(--accent);color:#fff;font-weight:600;cursor:pointer}
+    button.secondary{background:transparent;border:1px solid var(--border);color:var(--muted)}
+    ul{list-style:none;padding:0;margin:0}
+    li{padding:10px 12px;border:1px solid var(--border);border-radius:10px;margin:8px 0;display:flex;justify-content:space-between;gap:8px}
+    .ok{color:var(--ok);font-size:.85rem}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Tasky</h1>
+    <p class="ok">✓ No secrets in page · XSS-safe · keyboard accessible · local-only storage</p>
+    <div class="row">
+      <label class="visually-hidden" for="t" style="position:absolute;left:-9999px">New task</label>
+      <input id="t" type="text" placeholder="New task" autocomplete="off" />
+      <button id="add" type="button">Add</button>
+      <button id="clear" class="secondary" type="button">Clear</button>
+    </div>
+    <ul id="list" aria-live="polite"></ul>
+  </div>
+  <script>
+    const KEY = "tasks.v2";
+    function load(){ try { return JSON.parse(localStorage.getItem(KEY) || "[]"); } catch { return []; } }
+    function save(items){ localStorage.setItem(KEY, JSON.stringify(items)); }
+    function escapeText(s){ const d=document.createElement("div"); d.textContent=s; return d.innerHTML; }
+    function render(){
+      const items = load();
+      const list = document.getElementById("list");
+      list.innerHTML = items.map((t,i)=>`<li><span>${escapeText(t)}</span><button type="button" data-i="${i}" aria-label="Remove task">✕</button></li>`).join("");
+      list.querySelectorAll("button[data-i]").forEach(btn=>{
+        btn.addEventListener("click", ()=>{
+          const arr=load(); arr.splice(Number(btn.dataset.i),1); save(arr); render();
+        });
+      });
+    }
+    document.getElementById("add").addEventListener("click", ()=>{
+      const v=document.getElementById("t").value.trim();
+      if(!v) return;
+      const arr=load(); arr.push(v); save(arr);
+      document.getElementById("t").value=""; render();
+    });
+    document.getElementById("t").addEventListener("keydown", e=>{ if(e.key==="Enter") document.getElementById("add").click(); });
+    document.getElementById("clear").addEventListener("click", ()=>{ save([]); render(); });
+    render();
+  </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vibe-code rescue — Nyyo Automation</title>
+  <style>
+    :root{--bg:#0b1220;--panel:#121a2b;--text:#e8eefc;--muted:#9aa8c7;--accent:#5b8cff;--ok:#3dd6c6;--bad:#ff6b8a;--border:#243049}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif}
+    .wrap{max-width:900px;margin:0 auto;padding:24px 16px 48px}
+    .hero{background:linear-gradient(145deg,#13203a,#0c1628);border:1px solid var(--border);border-radius:16px;padding:22px;margin-bottom:16px}
+    .tag{display:inline-block;font-size:.75rem;color:var(--ok);border:1px solid rgba(61,214,198,.35);background:rgba(61,214,198,.12);padding:3px 10px;border-radius:999px;margin-bottom:10px}
+    .explainer{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:16px;margin-bottom:16px}
+    .explainer ol{color:var(--muted)}
+    .benefit{margin-top:12px;padding:10px;border-radius:10px;background:rgba(91,140,255,.12);border:1px solid rgba(91,140,255,.3)}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    @media(max-width:700px){.grid{grid-template-columns:1fr}}
+    .card{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:16px}
+    .card a{display:inline-block;margin-top:10px;padding:10px 14px;border-radius:10px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600}
+    .bad{color:var(--bad)}.ok{color:var(--ok)}
+    .footer{text-align:center;color:var(--muted);margin-top:18px;font-size:.85rem}.footer a{color:var(--ok)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <span class="tag">Before / after · no signup</span>
+      <h1 style="margin:0 0 8px">Your Lovable/Cursor app is broken? We rescue it.</h1>
+      <p style="margin:0;color:#9aa8c7">Same mini-app, two versions: leaky & buggy vs production-ready.</p>
+    </header>
+    <section class="explainer">
+      <h2>What is this? (plain English)</h2>
+      <p style="margin:0 0 8px;color:#9aa8c7">AI builders ship fast — and often leave bugs, exposed keys, and weak accessibility. This demo shows a typical rescue.</p>
+      <ol>
+        <li>Open <strong>Before</strong> — try typing <code>&lt;img src=x onerror=alert(1)&gt;</code> as a task (it executes — bad).</li>
+        <li>Open <strong>After</strong> — same input is safe; no keys in the page.</li>
+        <li>Read the [audit report](./audit.md).</li>
+      </ol>
+      <div class="benefit"><strong>Business benefit:</strong> go from “demo that scares investors” to “safe to share”. Fixes from <strong>$50</strong>, audit + ship from <strong>$299</strong>.</div>
+    </section>
+    <div class="grid">
+      <div class="card">
+        <h3 class="bad">Before (broken)</h3>
+        <ul>
+          <li>Fake API key in HTML/JS</li>
+          <li>XSS via innerHTML</li>
+          <li>No labels / chaotic CSS</li>
+        </ul>
+        <a href="./before/">Open before →</a>
+      </div>
+      <div class="card">
+        <h3 class="ok">After (rescued)</h3>
+        <ul>
+          <li>No secrets</li>
+          <li>Escaped text · localStorage JSON</li>
+          <li>Accessible controls</li>
+        </ul>
+        <a href="./after/">Open after →</a>
+      </div>
+    </div>
+    <p class="footer"><a href="./audit.md">Audit report</a> · <a href="https://laborx.com/freelancers/users/id475124">Hire Nyyo Automation</a> · <a href="https://github.com/nyyoautomation/nyyo-vibe-code-rescue">Repo</a></p>
+  </div>
+</body>
+</html>

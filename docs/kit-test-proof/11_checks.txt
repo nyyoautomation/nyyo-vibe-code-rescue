@@ -1,0 +1,22 @@
+Checks on the fake repo (7 fake values, 2 commits, untracked .env)
+
+PASS  12 expected findings found (7 current files, 5 git history), nothing missing, nothing extra
+PASS  AWS key removed in commit 2 is reported from git history only
+PASS  .env.example placeholders not reported
+PASS  node_modules/ not reported
+PASS  masking: no full fake value appears in any report (HTML or CSV, all runs)
+PASS  masking: no full fake value appears in any console log
+PASS  masked values keep a recognisable prefix (AKIA..., ghp_FAKE..., sk_test...)
+PASS  scanned project unchanged after all runs (file hashes, HEAD, git status)
+PASS  second Docker run reuses the image (no download)
+PASS  first native run downloads and verifies the checksum
+PASS  second native run reuses the binary
+PASS  each run wrote its own report folder (nothing overwritten)
+PASS  bash: Docker run 2 and native runs give identical findings
+PASS  PowerShell: Docker and native runs give the same findings as bash
+PASS  PowerShell: first native run verifies the checksum, second reuses the binary
+PASS  PowerShell: same HTML table as bash
+PASS  every run exited with code 0
+PASS  public URL: repo cloned with full history, both scans ran, re-run re-clones cleanly
+      note: 0 findings on the public demo repo. Its decorative placeholder in before/ (sk-demo-LEAKED-KEY-DO-NOT-USE-12345)
+      is low-entropy and matches no provider format, so gitleaks rightly treats it as not a real key.

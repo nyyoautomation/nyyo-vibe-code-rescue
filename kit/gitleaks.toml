@@ -1,0 +1,46 @@
+# Nyyo key scan kit - gitleaks rules.
+# Starts from the full gitleaks default rule set (222 rules in gitleaks 8.30.1) and adds
+# a few checks that matter for apps built with AI tools (Lovable, Bolt, Cursor...).
+title = "Nyyo key scan kit"
+
+[extend]
+useDefault = true
+
+# Secrets written in .env style files (KEY=value), committed or just lying in the folder.
+[[rules]]
+id = "env-file-secret"
+description = "Secret value in a .env style file (KEY, SECRET, TOKEN or PASSWORD variable)"
+path = '''(?i)(^|/)\.env(\.[a-z0-9_-]+)?$'''
+regex = '''(?im)^\s*(?:export\s+)?[A-Z0-9_]*(?:KEY|SECRET|TOKEN|PASSWORD|PASSWD|PWD|PRIVATE|CREDENTIALS?)[A-Z0-9_]*\s*=\s*["']?([^\s"'#]{12,})'''
+secretGroup = 1
+entropy = 3.0
+keywords = ["key", "secret", "token", "password", "passwd", "pwd", "private", "credential"]
+  [[rules.allowlists]]
+  description = "Placeholders, not secrets"
+  regexTarget = "secret"
+  regexes = ['''(?i)^(your|change|replace|example|placeholder|dummy|xxx|<|\$\{)''']
+  [[rules.allowlists]]
+  description = ".env.example / .env.sample / .env.template are meant to hold placeholders"
+  paths = ['''(?i)\.env\.(example|sample|template|dist)$''']
+
+# New-style OpenAI keys (sk-proj-..., sk-svcacct-..., sk-admin-...).
+[[rules]]
+id = "openai-project-key"
+description = "OpenAI API key (project, service account or admin format)"
+regex = '''\b(sk-(?:proj|svcacct|admin)-[A-Za-z0-9_-]{20,})'''
+secretGroup = 1
+entropy = 3.5
+keywords = ["sk-proj-", "sk-svcacct-", "sk-admin-"]
+
+# Supabase service_role / secret keys must never reach the browser.
+[[rules]]
+id = "supabase-secret-key"
+description = "Supabase secret key (sb_secret_...)"
+regex = '''\b(sb_secret_[A-Za-z0-9_-]{20,})'''
+secretGroup = 1
+keywords = ["sb_secret_"]
+
+# Folders that only hold downloaded third-party code.
+[[allowlists]]
+description = "Dependency folders"
+paths = ['''(^|/)(node_modules|\.venv|venv|vendor|\.git)/''']

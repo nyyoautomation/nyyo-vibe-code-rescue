@@ -1,0 +1,12 @@
+$ /tmp/keyscan-test.5EGp/nyyo-key-scan-kit/setup.sh /tmp/keyscan-test.5EGp/fake-app --native --no-open
+
+==> Downloading scanner gitleaks 8.30.1 (linux/x64) from the official GitHub release...
+==> Checksum verified, scanner installed in bin/.
+==> Scanning current files of fake-app...
+==> Scanning every commit of the git history...
+
+==> Done: 12 finding(s) (7 in current files, 5 in git history).
+==> Report: /tmp/keyscan-test.5EGp/nyyo-key-scan-kit/reports/fake-app-20261019-232253/report.html
+==> CSV:    /tmp/keyscan-test.5EGp/nyyo-key-scan-kit/reports/fake-app-20261019-232253/findings.csv
+
+[exit code 0]

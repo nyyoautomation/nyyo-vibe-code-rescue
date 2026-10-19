@@ -1,0 +1,17 @@
+build_dist.sh refusal tests (on a copy of the repo)
+
+--- A. clean copy: must build
+gitleaks check of the staged kit: no leaks
+    46601                     11 files
+sha256 01adca6ef469e43a01c046693135634c77357e6d45ab8f7284e7812c9667dafd
+[exit code 0]
+
+--- B. a fake AWS key pasted into INSTALL.md: must refuse
+Finding:     example: REDACTED
+9:23PM WRN leaks found: 1
+refusing: gitleaks found secret-like strings in the kit (values redacted above)
+[exit code 1]
+
+--- C. a fake OpenAI key in the kit config: must refuse
+refusing: secret-like string in kit
+[exit code 1]

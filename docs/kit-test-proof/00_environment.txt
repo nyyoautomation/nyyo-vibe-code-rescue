@@ -1,0 +1,18 @@
+Date: Oct 19, 2026, 23:22 CEST
+System: Linux x86_64
+Docker: 26.1.5+dfsg1
+PowerShell: 7.4.6
+Kit ZIP: nyyo-key-scan-kit.zip sha256 01adca6ef469e43a01c046693135634c77357e6d45ab8f7284e7812c9667dafd
+Scratch folder: /tmp/keyscan-test.5EGp (empty before unzip)
+gitleaks image present before test: no
+total 68
+drwxr-xr-x 4 box box  4096 Oct 19 23:22 .
+drwx------ 3 box box  4096 Oct 19 23:22 ..
+-rw-r--r-- 1 box box  8973 Oct 19 00:00 INSTALL.md
+-rw-r--r-- 1 box box  1072 Oct 19 00:00 LICENSE
+-rw-r--r-- 1 box box  1308 Oct 19 00:00 README.md
+-rw-r--r-- 1 box box  2749 Oct 19 00:00 TESTING.md
+drwxr-xr-x 2 box box  4096 Oct 19 23:22 kit
+-rw-r--r-- 1 box box 12342 Oct 19 00:00 setup.ps1
+-rwxr-xr-x 1 box box 10096 Oct 19 00:00 setup.sh
+drwxr-xr-x 2 box box  4096 Oct 19 23:22 tests

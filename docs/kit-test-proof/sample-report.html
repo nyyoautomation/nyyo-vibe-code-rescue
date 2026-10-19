@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Exposed key scan - fake-app</title>
+<style>
+:root{--bg:#0b1020;--card:#131a2e;--line:#26314f;--txt:#e8ecf6;--mut:#9aa8c7;--red:#ff5c7a;--amb:#ffb547;--grn:#39ff88;--blu:#3d8bff}
+*{box-sizing:border-box}body{margin:0;font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--txt)}
+main{max-width:1100px;margin:0 auto;padding:24px 16px 48px}h1{font-size:1.5rem;margin:0 0 4px}h2{font-size:1.1rem;margin:28px 0 10px}
+.mut{color:var(--mut)}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:18px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px}.card .v{font-size:1.8rem;font-weight:700}
+.ok .v{color:var(--grn)}.bad .v{color:var(--red)}.warn .v{color:var(--amb)}
+.verdict{border-radius:12px;padding:14px 16px;font-weight:600;margin:8px 0 0}.verdict.bad{background:#3a1220;border:1px solid var(--red)}.verdict.ok{background:#0f2e1e;border:1px solid var(--grn)}
+.wrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px}table{border-collapse:collapse;width:100%;min-width:760px}
+th,td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{background:#18213b;font-size:.85rem;color:var(--mut)}
+td small{color:var(--mut)}.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.85rem;overflow-wrap:anywhere}.nw{white-space:nowrap}td.f{min-width:150px}td.s{min-width:170px}.num{text-align:right}
+.secret{color:var(--amb)}.tag{display:inline-block;padding:2px 8px;border-radius:999px;font-size:.78rem;font-weight:600;white-space:nowrap}
+.t-files{background:#3a1220;color:#ffb3c1}.t-hist{background:#2f2610;color:#ffd58a}ol li{margin:4px 0}code{background:#18213b;padding:1px 5px;border-radius:5px}
+footer{margin-top:32px;color:var(--mut);font-size:.85rem}
+</style></head><body><main>
+<h1>Exposed key scan report</h1>
+<p class="mut">Project: <strong>fake-app</strong> · Scanned Oct 19, 2026, 23:22 CEST · Engine: gitleaks 8.30.1 (docker)</p>
+<div class="cards">
+<div class="card bad"><div class="v">12</div>findings in total</div>
+<div class="card bad"><div class="v">7</div>in current files</div>
+<div class="card warn"><div class="v">5</div>in git history</div>
+</div>
+<p class="verdict bad">12 possible exposed secret(s) found. Rotate the real ones first, then clean the code (see What to do now).</p>
+<p class="mut">Git history scanned: every commit reachable from the repository was checked.</p>
+<p class="mut">Values are masked: only the first characters are shown, so you can tell which key it is without the report becoming a leak itself.</p>
+<h2>Findings</h2>
+<div class="wrap"><table><thead><tr><th>Where</th><th>Type</th><th>File</th><th>Line</th><th>Commit</th><th>Masked value</th></tr></thead><tbody>
+<tr><td><span class="tag t-files">Current files</span></td><td><strong>env-file-secret</strong><br><small>Secret value in a .env style file (KEY, SECRET, TOKEN or PASSWORD variable)</small></td><td class="mono f">.env</td><td class="num">2</td><td class="mono nw">-</td><td class="mono secret s">sk-proj-FA...</td></tr>
+<tr><td><span class="tag t-files">Current files</span></td><td><strong>openai-project-key</strong><br><small>OpenAI API key (project, service account or admin format)</small></td><td class="mono f">.env</td><td class="num">2</td><td class="mono nw">-</td><td class="mono secret s">sk-proj-FA...</td></tr>
+<tr><td><span class="tag t-files">Current files</span></td><td><strong>env-file-secret</strong><br><small>Secret value in a .env style file (KEY, SECRET, TOKEN or PASSWORD variable)</small></td><td class="mono f">.env</td><td class="num">3</td><td class="mono nw">-</td><td class="mono secret s">FAKEp...</td></tr>
+<tr><td><span class="tag t-files">Current files</span></td><td><strong>slack-webhook-url</strong><br><small>Discovered a Slack Webhook, which could lead to unauthorized message posting and data leakage in Slack channels.</small></td><td class="mono f">README.md</td><td class="num">2</td><td class="mono nw">-</td><td class="mono secret s">https://hooks.sl...</td></tr>
+<tr><td><span class="tag t-files">Current files</span></td><td><strong>private-key</strong><br><small>Identified a Private Key, which may compromise cryptographic security and sensitive data encryption.</small></td><td class="mono f">deploy/id_rsa</td><td class="num">1</td><td class="mono nw">-</td><td class="mono secret s">-----BEGIN RSA PRIVATE KEY----- FA...</td></tr>
+<tr><td><span class="tag t-files">Current files</span></td><td><strong>github-pat</strong><br><small>Uncovered a GitHub Personal Access Token, potentially leading to unauthorized repository access and sensitive content exposure.</small></td><td class="mono f">src/config.js</td><td class="num">2</td><td class="mono nw">-</td><td class="mono secret s">ghp_FAKE...</td></tr>
+<tr><td><span class="tag t-files">Current files</span></td><td><strong>stripe-access-token</strong><br><small>Found a Stripe Access Token, posing a risk to payment processing services and sensitive financial data.</small></td><td class="mono f">src/config.js</td><td class="num">3</td><td class="mono nw">-</td><td class="mono secret s">sk_test...</td></tr>
+<tr><td><span class="tag t-hist">Git history</span></td><td><strong>slack-webhook-url</strong><br><small>Discovered a Slack Webhook, which could lead to unauthorized message posting and data leakage in Slack channels.</small></td><td class="mono f">README.md</td><td class="num">2</td><td class="mono nw">3544ddd4<br><small>2026-10-19</small></td><td class="mono secret s">https://hooks.sl...</td></tr>
+<tr><td><span class="tag t-hist">Git history</span></td><td><strong>private-key</strong><br><small>Identified a Private Key, which may compromise cryptographic security and sensitive data encryption.</small></td><td class="mono f">deploy/id_rsa</td><td class="num">1</td><td class="mono nw">3544ddd4<br><small>2026-10-19</small></td><td class="mono secret s">-----BEGIN RSA PRIVATE KEY----- FA...</td></tr>
+<tr><td><span class="tag t-hist">Git history</span></td><td><strong>aws-access-token</strong><br><small>Identified a pattern that may indicate AWS credentials, risking unauthorized cloud resource access and data breaches on AWS platforms.</small></td><td class="mono f">src/config.js</td><td class="num">2</td><td class="mono nw">3544ddd4<br><small>2026-10-19</small></td><td class="mono secret s">AKIA...</td></tr>
+<tr><td><span class="tag t-hist">Git history</span></td><td><strong>github-pat</strong><br><small>Uncovered a GitHub Personal Access Token, potentially leading to unauthorized repository access and sensitive content exposure.</small></td><td class="mono f">src/config.js</td><td class="num">3</td><td class="mono nw">3544ddd4<br><small>2026-10-19</small></td><td class="mono secret s">ghp_FAKE...</td></tr>
+<tr><td><span class="tag t-hist">Git history</span></td><td><strong>stripe-access-token</strong><br><small>Found a Stripe Access Token, posing a risk to payment processing services and sensitive financial data.</small></td><td class="mono f">src/config.js</td><td class="num">4</td><td class="mono nw">3544ddd4<br><small>2026-10-19</small></td><td class="mono secret s">sk_test...</td></tr>
+</tbody></table></div>
+<h2>What to do now</h2>
+<ol>
+<li><strong>Rotate first.</strong> For each real key, create a new one in the provider's dashboard (AWS, Stripe, OpenAI, GitHub...) and revoke the old one. Deleting the line from your code is not enough: anyone who copied it can still use it.</li>
+<li><strong>Move secrets out of the code.</strong> Put them in environment variables or your host's secret settings (Vercel, Netlify, Supabase...). Keys used in browser code are public by design: call the API from a server function instead.</li>
+<li><strong>Keep <code>.env</code> out of git.</strong> Add <code>.env</code> to <code>.gitignore</code> and commit only a <code>.env.example</code> with placeholders.</li>
+<li><strong>"Git history" findings</strong> are keys that were removed from the files but are still in old commits. Rotating them is what matters; rewriting history is optional and should be done carefully.</li>
+<li><strong>False positive?</strong> Test values and placeholders can match. Check each line; to silence a known one, add its fingerprint (in <code>findings.csv</code>) to a <code>.gitleaksignore</code> file in your project.</li>
+</ol>
+<footer>Generated by the free Nyyo key scan kit (gitleaks 8.30.1, default rules + Nyyo extras). A scanner finds known patterns; it cannot prove a project has no secrets. Nyyo Automation · Remote · Worldwide · LaborX (https://laborx.com/freelancers/users/id475124)</footer>
+</main></body></html>

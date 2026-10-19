@@ -15,7 +15,3 @@
 
 ## Hire me
 [LaborX — Nyyo Automation](https://laborx.com/freelancers/users/id475124) · [Profile](https://github.com/nyyoautomation)
-
-<details><summary>🇫🇷 Français</summary>
-Réparation d'apps « vibe coded ». [Avant/après](https://cdn.jsdelivr.net/gh/nyyoautomation/nyyo-vibe-code-rescue@main/index.html). À partir de **50 $**.
-</details>

@@ -4,13 +4,13 @@
 >
 > **What it does:** Takes a broken AI-generated app (Lovable, Bolt, Cursor, Claude Code…) and makes it safe to share: fix bugs, remove leaked keys, improve accessibility, help you ship.
 >
-> **Try it in 1 click:** open the [**landing**](https://cdn.jsdelivr.net/gh/nyyoautomation/nyyo-vibe-code-rescue@main/index.html), click **Before** then **After**. Try pasting HTML into the task box on both.
+> **Try it in 1 click:** open the [**landing**](https://nyyoautomation.github.io/nyyo-vibe-code-rescue/), click **Before** then **After**. Try pasting HTML into the task box on both.
 >
 > **Business benefit:** stop losing trust (or leaking keys) because the demo is rough. Fixes from **$50**, audit + production from **$299**.
 
 ![Demo](docs/demo.gif)
 
-**Live:** https://cdn.jsdelivr.net/gh/nyyoautomation/nyyo-vibe-code-rescue@main/index.html  
+**Live:** https://nyyoautomation.github.io/nyyo-vibe-code-rescue/  
 **Audit:** [audit.md](./audit.md)
 
 ## Hire me

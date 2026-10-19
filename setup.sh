@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Nyyo key scan kit - find exposed API keys in a project folder or git repo (Mac / Linux).
-# Free 1-click install kit, MIT licence. Nyyo Automation - LaborX (https://laborx.com/freelancers/users/id475124)
+# Free 1-click install kit, MIT licence. Nyyo Automation - Questions? Ask in your order chat.
 #
 #   ./setup.sh                       asks for the folder (drag it into the Terminal window)
 #   ./setup.sh ~/code/my-app         scan a folder (and its git history if it is a git repo)

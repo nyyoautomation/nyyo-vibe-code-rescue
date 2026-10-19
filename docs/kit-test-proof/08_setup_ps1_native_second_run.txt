@@ -1,11 +1,11 @@
-$ /tmp/pwsh/pwsh -NoProfile -File /tmp/keyscan-test.5EGp/nyyo-key-scan-kit/setup.ps1 /tmp/keyscan-test.5EGp/fake-app -Native -NoOpen
+$ /tmp/pwsh/pwsh -NoProfile -File /tmp/keyscan-test.besK/nyyo-key-scan-kit/setup.ps1 /tmp/keyscan-test.besK/fake-app -Native -NoOpen
 
 ==> Scanner gitleaks 8.30.1 already installed in bin\.
 ==> Scanning current files of fake-app...
 ==> Scanning every commit of the git history...
 
 ==> Done: 12 finding(s) (7 in current files, 5 in git history).
-==> Report: /tmp/keyscan-test.5EGp/nyyo-key-scan-kit/reports/fake-app-20261019-232259/report.html
-==> CSV:    /tmp/keyscan-test.5EGp/nyyo-key-scan-kit/reports/fake-app-20261019-232259/findings.csv
+==> Report: /tmp/keyscan-test.besK/nyyo-key-scan-kit/reports/fake-app-20261019-235347/report.html
+==> CSV:    /tmp/keyscan-test.besK/nyyo-key-scan-kit/reports/fake-app-20261019-235347/findings.csv
 
 [exit code 0]

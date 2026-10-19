@@ -101,7 +101,7 @@ What to do, in this order (also written at the bottom of the report):
 4. Rewriting git history is optional, and only worth it after rotation.
 
 Want it done for you? The vibe-code rescue gig fixes it (keys moved out, code cleaned, checked again): see the
-[demo page](https://nyyoautomation.github.io/nyyo-vibe-code-rescue/) or write to LaborX (https://laborx.com/freelancers/users/id475124).
+[demo page](https://nyyoautomation.github.io/nyyo-vibe-code-rescue/). Questions? Ask in your order chat.
 
 ## Try it on a fake project first (optional)
 
@@ -146,4 +146,4 @@ second commit), while `.env.example` placeholders and `node_modules/` are correc
 - Tested on Linux (Docker and standalone, bash and PowerShell 7). Not yet tested on a real Mac or a Windows PC, nor
   with Windows PowerShell 5.1. See [docs/TESTING.md](docs/TESTING.md).
 
-Nyyo Automation · Remote · Worldwide · LaborX (https://laborx.com/freelancers/users/id475124)
+Nyyo Automation · Remote · Worldwide · Questions? Ask in your order chat.

@@ -13,7 +13,7 @@ check() { if eval "$2"; then echo "PASS  $1"; PASS=$((PASS+1)); else echo "FAIL 
 rows() { sed '1s/^\xEF\xBB\xBF//' "$1" | tr -d '\r' | sed 1d; }
 snap() { (cd "$T" && find . -path ./.git -prune -o -type f -print0 | sort -z | xargs -0 sha256sum; git -C "$T" rev-parse HEAD; git -C "$T" status --porcelain) ; }
 last() { ls -d "$K"/reports/*/ | sort | tail -1; }
-run() { local name="$1"; shift; { echo "\$ $*"; echo; "$@" 2>&1; echo; echo "[exit code $?]"; } | sed 's/\x1b\[[0-9;]*m//g' > "$PROOF/$name"; }
+run() { local name="$1"; shift; { echo "\$ $*"; echo; "$@" 2>&1; local rc=$?; echo; echo "[exit code $rc]"; } | sed 's/\x1b\[[0-9;]*m//g' > "$PROOF/$name"; }
 
 {
   echo "Date: $(date '+%b %-d, %Y, %H:%M %Z')"; echo "System: $(uname -sm)"
@@ -84,7 +84,7 @@ rows "$R1/findings.csv" | python3 -c "import csv,sys;[print(','.join([r[0],r[1],
   fi
   check "every run exited with code 0" "! grep -h '^\[exit code' '$PROOF'/0[2-9]_*.txt '$PROOF'/10_*.txt | grep -qv 'exit code 0'"
   check "public URL: repo cloned with full history, both scans ran, re-run re-clones cleanly" "grep -q 'Cloning' '$PROOF/09_setup_sh_public_url.txt' && grep -q 'Scanning every commit' '$PROOF/09_setup_sh_public_url.txt' && grep -q 'Done:' '$PROOF/10_setup_sh_public_url_again.txt' && [ -f '$RU/report.html' ]"
-  echo "      note: 0 findings on the public demo repo. Its decorative placeholder in before/ (sk-demo-LEAKED-KEY-DO-NOT-USE-12345)"
+  echo "      note: 0 findings on the public demo repo. Its decorative placeholder in before/ (sk_live_••••EXAMPLE)"
   echo "      is low-entropy and matches no provider format, so gitleaks rightly treats it as not a real key."
 } > "$PROOF/11_checks.txt" 2>&1
 

@@ -31,7 +31,11 @@ Scanner: [gitleaks](https://github.com/gitleaks/gitleaks) 8.30.1, pinned (Docker
 | `docs/kit-test-proof/` | Raw output of the from-scratch test |
 | `dist/` | The kit ZIP and its SHA-256 |
 
-Licence: MIT (see [LICENSE](LICENSE)). Contact: Nyyo Automation · Remote · Worldwide · LaborX (https://laborx.com/freelancers/users/id475124)
+Licence: MIT (see [LICENSE](LICENSE)). Nyyo Automation · Remote · Worldwide · Questions? Ask in your order chat.
 
-## Hire me
-[LaborX — Nyyo Automation](https://laborx.com/freelancers/users/id475124) · [Profile](https://github.com/nyyoautomation)
+## How to order
+
+Available on LaborX · [Profile & packages](https://github.com/nyyoautomation)
+
+Questions? Ask in your order chat.
+

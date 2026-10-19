@@ -18,5 +18,5 @@ PASS  PowerShell: first native run verifies the checksum, second reuses the bina
 PASS  PowerShell: same HTML table as bash
 PASS  every run exited with code 0
 PASS  public URL: repo cloned with full history, both scans ran, re-run re-clones cleanly
-      note: 0 findings on the public demo repo. Its decorative placeholder in before/ (sk-demo-LEAKED-KEY-DO-NOT-USE-12345)
+      note: 0 findings on the public demo repo. Its decorative placeholder in before/ (sk_live_••••EXAMPLE)
       is low-entropy and matches no provider format, so gitleaks rightly treats it as not a real key.

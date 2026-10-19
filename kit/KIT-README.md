@@ -19,4 +19,4 @@ Step-by-step guide for beginners, options and troubleshooting: **INSTALL.md**.
 Runs 100 % on your computer, read-only on your project. Nothing is uploaded. MIT licence (see LICENSE).
 
 Bonus kit of the vibe-code rescue gig: https://nyyoautomation.github.io/nyyo-vibe-code-rescue/
-Nyyo Automation · Remote · Worldwide · LaborX (https://laborx.com/freelancers/users/id475124)
+Nyyo Automation · Remote · Worldwide · Questions? Ask in your order chat.

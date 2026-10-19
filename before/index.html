@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head><title>Tasky (BROKEN demo)</title>
+<head><meta charset="utf-8"><title>Tasky (BROKEN demo)</title>
 <style>
 body{font-family:comic sans ms,cursive;background:#ff0;margin:0}
 h1{font-size:48px;color:red;text-shadow:2px 2px blue}
@@ -12,14 +12,14 @@ input,button{font-size:20px}
 <h1>Tasky!!!</h1>
 <p>Add task (this version is intentionally broken for the demo)</p>
 <!-- FAKE leaked key for demo — not real -->
-<p class="leak">API_KEY=sk-demo-LEAKED-KEY-DO-NOT-USE-12345</p>
+<p class="leak">API_KEY=sk_live_••••EXAMPLE</p>
 <input id="t" placeholder="task">
 <button onclick="add()">Add</button>
 <button onclick="clearAll()">Clear ALL</button>
 <div id="out"></div>
 <script>
 // XSS-prone: writes HTML without escaping
-const KEY = "sk-demo-LEAKED-KEY-DO-NOT-USE-12345"; // also in JS
+const KEY = "sk_live_••••EXAMPLE"; // also in JS
 function add(){
   const v = document.getElementById('t').value;
   document.getElementById('out').innerHTML += "<div>"+v+"</div>"; // unsafe

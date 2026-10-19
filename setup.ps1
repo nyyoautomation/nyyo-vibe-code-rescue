@@ -1,6 +1,6 @@
 <#
 Nyyo key scan kit - find exposed API keys in a project folder or git repo (Windows).
-Free 1-click install kit, MIT licence. Nyyo Automation - LaborX (https://laborx.com/freelancers/users/id475124)
+Free 1-click install kit, MIT licence. Nyyo Automation - Questions? Ask in your order chat.
 
   powershell -ExecutionPolicy Bypass -File .\setup.ps1                       (asks for the folder)
   powershell -ExecutionPolicy Bypass -File .\setup.ps1 C:\code\my-app
